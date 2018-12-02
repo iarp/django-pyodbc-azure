@@ -564,7 +564,7 @@ class CursorWrapper(object):
                 # yet, so we need to decode utf-8 data coming from the DB
                 if isinstance(f, bytes):
                     row[i] = f.decode(self.driver_charset)
-        if self.settings_dict.get('OPTIONS', {}).get('return_raw_row'):
+        if self.connection.settings_dict.get('OPTIONS', {}).get('return_raw_row'):
             return row
         return tuple(row)
 
